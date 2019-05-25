@@ -5,6 +5,7 @@
   import Comments from "../components/Comments.svelte";
   import { category } from "../stores/category/store";
   import { author } from "../stores/author/store";
+  import PageView from "../components/PageView.svelte";
 
   export let router = {};
 
@@ -22,33 +23,9 @@
     comments = await resComments.json();
     document.title = data.title.rendered;
   });
-
-  function handleSubmit() {
-    alert(`answered question`);
-  }
 </script>
 
 {#if data.title}
-  <h1>{data.title.rendered}</h1>
-
-  {#each $author as auth}
-    {#if data.author === auth.id}
-      <h3>{auth.name}</h3>
-    {/if}
-  {/each}
-
-  {#each data.categories as id_cat}
-    {#each $category as cat}
-      {#if id_cat === cat.id}
-        <h3>{cat.name}</h3>
-      {/if}
-    {/each}
-  {/each}
-
-  <p>{new Date(data.date).toDateString()}</p>
-  <p>
-    {@html data.content.rendered}
-  </p>
+  <PageView post={data} {author} {category} />
   <Comments {comments} id={router.params.id} />
-
 {/if}

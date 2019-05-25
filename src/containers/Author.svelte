@@ -7,10 +7,24 @@
   import { info } from "../stores/info/store";
   import ListPost from "../components/ListPost.svelte";
 
+  export let router = {};
+
   let posts = [];
 
   onMount(async () => {
-    const res = await fetch(process.env.SITE + "/wp-json/wp/v2/posts");
+    let id;
+
+    await Promise.all(
+      $author.map(data => {
+        if (data.name === router.params.name) {
+          id = data.id;
+          return Promise.resolve("ok");
+        }
+      })
+    );
+    const res = await fetch(
+      process.env.SITE + "/wp-json/wp/v2/posts?author=" + id
+    );
     posts = await res.json();
     document.title = $info.name;
   });
