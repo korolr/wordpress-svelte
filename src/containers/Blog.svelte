@@ -20,7 +20,7 @@
 {/each}
 
 {#each posts as post}
-  <Link href="/page/ + {post.id}" className="btn">
+  <Link href="/{post.id}" className="btn">
     <h1>{post.title.rendered}</h1>
   </Link>
 
