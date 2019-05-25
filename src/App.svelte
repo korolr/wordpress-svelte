@@ -12,14 +12,18 @@
   import { info } from "./stores/info/store";
 </script>
 
-<div class="center-xs">
-  <Header info={$info} />
-  <Router>
-    <Route path="*" component={Blog} />
-    <Route path="/:id" component={Page} />
-    <Route path="/category/:name" component={Category} />
-    <Route path="/author/:name" component={Author} />
-  </Router>
-</div>
+<div class="wrapper">
+  <div class="content">
+    <div class="container">
+      <Header info={$info} />
+      <Router>
+        <Route path="*" component={Blog} />
+        <Route path="/:id" component={Page} />
+        <Route path="/category/:name" component={Category} />
+        <Route path="/author/:name" component={Author} />
+      </Router>
+    </div>
+  </div>
 
-<Footer />
+  <Footer />
+</div>

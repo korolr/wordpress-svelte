@@ -30,16 +30,28 @@
   }
 </script>
 
+<style>
+  .date {
+    margin-top: -30px;
+  }
+</style>
+
 {#if comments.length > 0}
   <h2>{comments.length} comments</h2>
 
   {#each comments as com}
-    <p>{com.author_name}</p>
-    <img src={com.author_avatar_urls[96]} alt="" />
-    <p>{new Date(com.date).toDateString()}</p>
-    <p>
-      {@html com.content.rendered}
-    </p>
+    <div class="row">
+      <div class="column">
+        <img src={com.author_avatar_urls[96]} alt="" />
+        <p>{com.author_name}</p>
+        <p class="date"> {new Date(com.date).toDateString()}</p>
+      </div>
+      <div class="column column-75 ">
+        <p>
+          {@html com.content.rendered}
+        </p>
+      </div>
+    </div>
   {/each}
 {:else}
   <h2>Нет коментариев</h2>
@@ -56,12 +68,16 @@
     bind:value={form.name}
     type="text"
     required
-    placeholder="enter your name" />
+    placeholder="Enter your name" />
   <input
     bind:value={form.email}
     type="email"
     required
-    placeholder="enter your email" />
-  <textarea bind:value={form.comment} type="text" required placeholder="Text" />
+    placeholder="Enter your email" />
+  <textarea
+    bind:value={form.comment}
+    type="text"
+    required
+    placeholder="You text" />
   <button type="submit">Post comment</button>
 </form>
