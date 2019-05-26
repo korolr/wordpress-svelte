@@ -17,7 +17,7 @@
     );
     data = await resData.json();
     const resComments = await fetch(
-      process.env.SITE + "/wp-json/wp/v2/comments?post" + router.params.id
+      process.env.SITE + "/wp-json/wp/v2/comments?post=" + router.params.id
     );
 
     comments = await resComments.json();

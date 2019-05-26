@@ -22,14 +22,6 @@
     font-size: 18px;
     margin-left: 6px;
   }
-  .post {
-    font-size: 26px;
-  }
-
-  .rev dt {
-    font-size: 18px;
-    margin-left: 6px;
-  }
 </style>
 
 <h1 class="row row-cen">{post.title.rendered}</h1>

@@ -11,9 +11,12 @@
 
   let posts = [];
 
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   onMount(async () => {
     let id;
-
+    await sleep(300);
     await Promise.all(
       $category.map(data => {
         if (data.name === router.params.name) {
@@ -27,7 +30,6 @@
     );
     posts = await res.json();
     document.title = router.params.name;
-    console.log(router.params.name);
   });
 </script>
 

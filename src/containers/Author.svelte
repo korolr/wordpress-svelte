@@ -10,10 +10,12 @@
   export let router = {};
 
   let posts = [];
-
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   onMount(async () => {
     let id;
-
+    await sleep(300);
     await Promise.all(
       $author.map(data => {
         if (data.name === router.params.name) {

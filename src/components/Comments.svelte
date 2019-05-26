@@ -54,7 +54,7 @@
     </div>
   {/each}
 {:else}
-  <h2>Нет коментариев</h2>
+  <h2>Not comments</h2>
 {/if}
 
 <h2>Write comment</h2>
