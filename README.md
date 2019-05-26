@@ -1,15 +1,15 @@
 # Deploy
 
-1.Clone this rep
-2.Change env to tou url
-3.buid
+1. Clone this rep
+2. Change env to tou url
+3. Build
 
 ```bash
 npm i
 npm run build
 ```
 
-4.Send folder to server
+4. Send folder to server
 
 _Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)_
 
